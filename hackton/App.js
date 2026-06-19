@@ -6,14 +6,13 @@ import {
   StyleSheet,
   Image,
   Button,
-  Alert,
 } from "react-native";
 
 export default function App() {
   const [selecoes, setSelecoes] = useState([]);
 
   useEffect(() => {
-    fetch("COLE_AQUI_SUA_URL_RAW")
+    fetch("https://raw.githubusercontent.com/biancaluisat/rec-du/refs/heads/main/hackton/db.json")
       .then((response) => response.json())
       .then((data) => setSelecoes(data))
       .catch((error) => console.log(error));
@@ -38,10 +37,7 @@ export default function App() {
         <Button
           title="Apostar"
           onPress={() =>
-            Alert.alert(
-              "Aposta registrada",
-              `Você apostou no ${item.selecao}!`
-            )
+            alert(`Aposta registrada!\nVocê apostou no ${item.selecao}!`)
           }
         />
       </View>
